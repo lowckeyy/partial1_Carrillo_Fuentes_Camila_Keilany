@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partial 1 Index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311042 100%);
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent-mario: #ec4899;
+            --accent-mario-hover: #db2777;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 680px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            padding: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-section {
+            margin-bottom: 25px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .logo {
+            width: 140px;
+            height: auto;
+            margin: 15px 0 25px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .play-link-container {
+            margin-bottom: 35px;
+        }
+
+        .play-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 50px;
+            box-shadow: 0 10px 15px -3px rgba(236, 72, 153, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .play-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 20px -3px rgba(236, 72, 153, 0.4);
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            margin: 25px 0 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .section-title::before,
+        .section-title::after {
+            content: "";
+            height: 1px;
+            width: 40px;
+            background-color: var(--border-color);
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .btn-group a {
+            text-decoration: none;
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            background-color: #ffffff;
+            color: var(--text-main);
+            border: 1.5px solid var(--border-color);
+            padding: 12px 20px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-color: var(--primary);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px -2px rgba(99, 102, 241, 0.25);
+        }
+
+        .student-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .student-card {
+            background: rgba(248, 250, 252, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
+            width: 100%;
+            max-width: 420px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .student-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 12px 0 4px 0;
+        }
+
+        .student-email {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 130px;
+            height: 130px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-section">
+            <h1>PARTIAL 1 INDEX</h1>
+            <h2>Quality Topics for Software Design</h2>
+        </div>
+
+        <img src="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/utd.webp" alt="UTD Logo" class="logo">
+
+        <div class="play-link-container">
+            <a href="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/mario/index.html" class="play-link">🎮 PLAY MARIO</a>
+        </div>
+
+        <div class="section-title">Flowchart Section</div>
+        <div class="btn-group">
+            <a href="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/ideamillonaria.html"><button>Diagram 1 - Main Process</button></a>
+            <a href="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/clientes.html"><button>Diagram 2 - Clients</button></a>
+            <a href="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/money.html"><button>Diagram 3 - Money</button></a>
+        </div>
+
+        <div class="section-title">Use Case Diagram Section</div>
+        <div class="btn-group">
+            <a href="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/usecase1.html"><button>Diagram 1</button></a>
+            <a href="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/usecase2.html"><button>Diagram 2</button></a>
+            <a href="https://lowckeyy.github.io/partial1_Carrillo_Fuentes_Camila_Keilany/usecase3.html"><button>Diagram 3</button></a>
+        </div>
+
+        <div class="student-section">
+            <div class="student-card">
+                <img src="https://lowckeyy.github.io/29_sep_Carrillo/foto.jpeg" alt="Foto del estudiante" class="profile-pic" style="width: 400px; height: 400px;">
+                <div class="student-name">Carrillo Fuentes Camila Keilany</div>
+                <div class="student-email">camilakeilany@gmail.com</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
